@@ -21,16 +21,16 @@ public class Bodega {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = true)
 	private int id_bodega;
-	
+
 	@Column(name = "nombre")
 	private String nombre;
-	
+
 	@OneToMany
     @JoinColumn(name = "bodega_id")
 	private List<Vid> vids;
-	
+
 	public Bodega() {}
-	
+
 	public Bodega(String nombre) {
 		this.nombre = nombre;
 		this.vids = new ArrayList<>();
@@ -44,5 +44,5 @@ public class Bodega {
 	public List<Vid> getVids() {
 		return this.vids;
 	}
-	
+
 }

@@ -17,7 +17,7 @@ public class Entrada {
 
 	@Column(name = "instruccion")
 	private String instruccion;
-	
+
 	public String getInstruccion() {
 		return this.instruccion;
 	}

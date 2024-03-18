@@ -9,8 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -25,11 +25,11 @@ public class Campo {
 	@OneToMany
     @JoinColumn(name = "campo_id")
 	private List<Vid> vids;
-	
+
 	@OneToOne
 	@JoinColumn(name = "id_bodega")
 	private Bodega bodega;
-	
+
 	public Campo() {}
 
 	public Campo(Bodega b) {
@@ -44,7 +44,7 @@ public class Campo {
 	}
 
 	public void addVid(Vid v) {
-		this.vids.add(v);		
+		this.vids.add(v);
 	}
 
 	public ArrayList<Vid> getVids() {

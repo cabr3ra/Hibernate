@@ -2,7 +2,6 @@ package manager;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -26,14 +25,14 @@ public class Manager {
 	private Manager () {
 		this.entradas = new ArrayList<>();
 	}
-	
+
 	public static Manager getInstance() {
 		if (manager == null) {
 			manager = new Manager();
 		}
 		return manager;
 	}
-	
+
 	private void createSession() {
 		org.hibernate.SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
     	session = sessionFactory.openSession();
@@ -78,10 +77,10 @@ public class Manager {
 
 	private void vendimia() {
 		this.b.getVids().addAll(this.c.getVids());
-		
+
 		tx = session.beginTransaction();
 		session.save(b);
-		
+
 		tx.commit();
 	}
 
@@ -89,33 +88,33 @@ public class Manager {
 		Vid v = new Vid(TipoVid.valueOf(split[1].toUpperCase()), Integer.parseInt(split[2]));
 		tx = session.beginTransaction();
 		session.save(v);
-		
+
 		c.addVid(v);
 		session.save(c);
-		
+
 		tx.commit();
-		
+
 	}
 
 	private void addCampo(String[] split) {
 		c = new Campo(b);
 		tx = session.beginTransaction();
-		
+
 		int id = (Integer) session.save(c);
 		c = session.get(Campo.class, id);
-		
+
 		tx.commit();
 	}
 
 	private void addBodega(String[] split) {
 		b = new Bodega(split[1]);
 		tx = session.beginTransaction();
-		
+
 		int id = (Integer) session.save(b);
 		b = session.get(Bodega.class, id);
-		
+
 		tx.commit();
-		
+
 	}
 
 	private void getEntrada() {
@@ -135,5 +134,5 @@ public class Manager {
 		tx.commit();
 	}
 
-	
+
 }
