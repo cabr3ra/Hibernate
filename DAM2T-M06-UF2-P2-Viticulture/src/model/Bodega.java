@@ -17,32 +17,44 @@ import javax.persistence.Table;
 @Table(name= "bodega")
 public class Bodega {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id", unique = true, nullable = true)
-	private int id_bodega;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = true)
+    private int id_bodega;
 
-	@Column(name = "nombre")
-	private String nombre;
+    @Column(name = "nombre")
+    private String nombre;
 
-	@OneToMany
+    @Column(name = "denominacion")
+    private String denominacion;
+
+    @OneToMany
     @JoinColumn(name = "bodega_id")
-	private List<Vid> vids;
+    private List<Vid> vids;
 
-	public Bodega() {}
+    public Bodega() {}
 
-	public Bodega(String nombre) {
-		this.nombre = nombre;
-		this.vids = new ArrayList<>();
-	}
+    public Bodega(String nombre, String denominacion) {
+        this.nombre = nombre;
+        this.denominacion = denominacion;
+        this.vids = new ArrayList<>();
+    }
 
-	@Override
-	public String toString() {
-		return "Bodega [id_bodega=" + id_bodega + ", vids=" + Arrays.toString(vids.toArray()) + "]";
-	}
+    @Override
+    public String toString() {
+        return "Bodega [id_bodega=" + id_bodega + ", nombre=" + nombre + ", denominacion=" + denominacion + ", vids=" + Arrays.toString(vids.toArray()) + "]";
+    }
 
-	public List<Vid> getVids() {
-		return this.vids;
-	}
+    public String getDenominacion() {
+        return denominacion;
+    }
+
+    public void setDenominacion(String denominacion) {
+        this.denominacion = denominacion;
+    }
+
+    public List<Vid> getVids() {
+        return this.vids;
+    }
 
 }
