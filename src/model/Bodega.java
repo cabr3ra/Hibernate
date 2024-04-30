@@ -34,25 +34,35 @@ public class Bodega {
 
     public Bodega() {}
 
-    public Bodega(String nombre, String denominacion) {
+    public Bodega(String nombre) {
         this.nombre = nombre;
-        this.denominacion = denominacion;
         this.vids = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return "Bodega [id_bodega=" + id_bodega + ", nombre=" + nombre + ", denominacion=" + denominacion + ", vids=" + Arrays.toString(vids.toArray()) + "]";
-    }
-
-    public String getDenominacion() {
-        return denominacion;
+        return "Bodega [id_bodega=" + id_bodega + ", nombre=" + nombre + ", vids=" + Arrays.toString(vids.toArray()) + "]";
     }
     
+    public int getId_bodega() {
+		return id_bodega;
+	}
 
-    public void setDenominacion(String denominacion) {
-        this.denominacion = denominacion;
-    }
+	public void setId_bodega(int id_bodega) {
+		this.id_bodega = id_bodega;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setVids(List<Vid> vids) {
+		this.vids = vids;
+	}
 
     public List<Vid> getVids() {
         return this.vids;

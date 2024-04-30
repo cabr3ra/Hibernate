@@ -10,15 +10,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "Entrada")
 public class Entrada {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private String valor;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
 
-	@Column(name = "instruccion")
-	private String instruccion;
+    @Column(name = "instruccion")
+    private String instruccion;
 
-	public String getInstruccion() {
-		return this.instruccion;
-	}
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getInstruccion() {
+        return instruccion;
+    }
+
+    public void setInstruccion(String instruccion) {
+        this.instruccion = instruccion;
+    }
 }
