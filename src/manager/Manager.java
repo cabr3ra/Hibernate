@@ -98,12 +98,14 @@ public class Manager {
 	}
 
 	private void vendimia() {
+		/*
 		this.b.getVids().addAll(this.c.getVids());
-
+		
 		tx = session.beginTransaction();
 		session.save(b);
 
 		tx.commit();
+		*/
 	}
 	
 	public void addVid(String[] split) {
