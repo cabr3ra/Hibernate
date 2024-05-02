@@ -8,6 +8,5 @@ public class Main {
 		Manager manager = Manager.getInstance();
 		manager.init();
 	}
-	//Prueba rama UF3P1_MongoDB
-
+	// PRUEBA DE BRANCH
 }
